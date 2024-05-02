@@ -6,7 +6,7 @@ import Confetti from "react-confetti";
 const mazeWidthHeight: number = 30;
 
 var root = document.querySelector(":root");
-root?.style?.setProperty("--height", `${mazeWidthHeight}px`);
+(root as any)?.style?.setProperty("--height", `${mazeWidthHeight}px`);
 
 interface MazeType {
   visited: boolean;
@@ -43,7 +43,7 @@ const Maze = () => {
   const [showBuddy, setShowBuddy] = useState(false);
   const [gameComplete, setGameComplete] = useState(false);
   const [wantTrail, setWantTrail] = useState(true);
-  const [trail, setTrail] = useState([]);
+  const [trail, setTrail] = useState<any>([]);
   const [mazeSize, setMazeSize] = useState(6);
 
   const initialState = [0, 0];
@@ -208,7 +208,7 @@ const Maze = () => {
         .map((y) => y[0]);
       const randomSideToMove =
         unvisitedNeighbour[
-          Math.floor(Math.random() * unvisitedNeighbour.length)
+        Math.floor(Math.random() * unvisitedNeighbour.length)
         ];
       movePivot(randomSideToMove);
     } else {
@@ -241,7 +241,7 @@ const Maze = () => {
     addEventListn();
   };
 
-  const handleKeyChange = (event) => {
+  const handleKeyChange = (event: any) => {
     const key = event.key.toLowerCase();
     if (key === "arrowup" || key === "w") {
       setCurrentBuddyPlacement((old) => {
@@ -377,7 +377,7 @@ const Maze = () => {
     setSwipeCoords({ x: pageX, y: pageY });
   };
 
-  const handleTouchEnd = (event) => {
+  const handleTouchEnd = (event: any) => {
     const { pageX, pageY } = event.changedTouches[0];
     changePosition(pageX, pageY);
   };
@@ -396,7 +396,7 @@ const Maze = () => {
     ) {
       setGameComplete(true);
     }
-    setTrail((old: Array<any>) => {
+    setTrail((old: string[]) => {
       if (
         old[old?.length - 1] ===
         `${currentBuddyPlacement.x}-${currentBuddyPlacement.y}`
@@ -406,11 +406,12 @@ const Maze = () => {
       old.push(`${currentBuddyPlacement.x}-${currentBuddyPlacement.y}`);
       return [...old];
     });
+
   }, [currentBuddyPlacement]);
 
   const getOpacity = (x: number, y: number) => {
     let temp = `${x}-${y}`;
-    const a = trail.filter((_) => _ == temp);
+    const a = trail.filter((_: any) => _ == temp);
     if (a?.length) {
       return 0.3 * a.length;
     }
@@ -419,7 +420,7 @@ const Maze = () => {
 
   return (
     <>
-      <Confetti numberOfPieces={400} gravity={0.1} drawShape={(x) => {}} />
+      <Confetti numberOfPieces={400} gravity={0.1} drawShape={(x) => { }} />
 
       {!startGames ? (
         <div className="startGame">
@@ -483,20 +484,16 @@ const Maze = () => {
                   {row.map((col, j) => {
                     return (
                       <div
-                        className={`block ${col.walls.b && "bb"} ${
-                          col.walls.t && "bt"
-                        } ${col.walls.l && "bl"} ${col.walls.r && "br"} ${
-                          pivot[0] == i &&
+                        className={`block ${col.walls.b && "bb"} ${col.walls.t && "bt"
+                          } ${col.walls.l && "bl"} ${col.walls.r && "br"} ${pivot[0] == i &&
                           pivot[1] == j &&
                           displayPivot &&
                           "pivot"
-                        } ${col.visited && "visited"} ${
-                          initialState[0] == i &&
+                          } ${col.visited && "visited"} ${initialState[0] == i &&
                           initialState[1] == j &&
                           "startPoint"
-                        }  ${
-                          finalState[0] == i && finalState[1] == j && "endPoint"
-                        }`}
+                          }  ${finalState[0] == i && finalState[1] == j && "endPoint"
+                          }`}
                       >
                         <div
                           style={{
