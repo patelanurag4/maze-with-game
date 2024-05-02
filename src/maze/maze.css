@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #fefded;
+}
+.box {
+  border: 1px solid black;
+  width: fit-content;
+  position: relative;
+}
+.row {
+  display: flex;
+}
+.block {
+  background-color: #a1c398;
+  min-height: var(--height);
+  min-width: var(--height);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+.bt {
+  border-top: 1px solid black;
+}
+.bb {
+  border-bottom: 1px solid black;
+}
+.bl {
+  border-left: 1px solid black;
+}
+.br {
+  border-right: 1px solid black;
+}
+.pivot {
+  background-color: rgb(161, 48, 48) !important;
+}
+.visited {
+  background-color: #fefded;
+}
+.startPoint {
+  background-color: #a1c398;
+}
+
+.endPoint {
+  background-color: #fa7070;
+}
+#handleClick {
+  display: none;
+}
+
+.buddy {
+  position: absolute;
+  height: var(--height);
+  width: var(--height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: left 200ms linear, top 200ms linear;
+  border: 1px solid transparent;
+}
+.buddy svg {
+  width: 65%;
+  height: 65%;
+}
+
+.won {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.startGame,
+.game,
+.wonWrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fefded;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.startGame button,
+.game button,
+.wonWrapper button {
+  width: 140px;
+  border: 1px solid transparent;
+  color: white;
+  background-color: #fa7070;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 24px;
+}
+.startGame p {
+  font-size: 14px;
+  color: #a1c398;
+}
+
+.submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit div {
+  display: flex;
+  gap: 24px;
+}
+.submit div span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.startGame button:hover,
+.game button:hover,
+.wonWrapper button:hover {
+  background-color: #fe6262;
+}
+
+@media (max-width: 700px) {
+  .startGame,
+  .game,
+  .wonWrapper {
+    height: 90vh;
+  }
+}
