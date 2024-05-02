@@ -544,6 +544,7 @@ const Maze = () => {
       <button id="handleClick" onClick={handleCreate}>
         Create
       </button>
+      <p style={{ position: 'fixed', bottom: '18px', textAlign: 'center', width: '100%', fontSize: '14px', color: '#a3a3a3' }}>Anurag &#169; 2024 </p>
     </>
   );
 };
