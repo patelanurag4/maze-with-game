@@ -1,0 +1,13 @@
+.spider {
+  /* background-color: #eee;
+  border: 1px solid #ccc; */
+  transition: height 250ms linear;
+  animation-duration: 2s 250ms;
+  margin-top: -60px;
+}
+
+.thread {
+  flex-grow: 1;
+  width: 1px;
+  background-color: black;
+}

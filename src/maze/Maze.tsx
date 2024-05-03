@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 import "./maze.css";
 import Confetti from "react-confetti";
+import SpiderConfetti from "./SpiderConfetti/Confetti";
 
 
 interface MazeType {
@@ -431,8 +432,6 @@ const Maze = () => {
 
   return (
     <>
-      <Confetti numberOfPieces={400} gravity={0.1} drawShape={(x) => { }} />
-
       {!startGames ? (
         <div className="startGame">
           <Pacman height={120} width={120} />
@@ -555,7 +554,9 @@ const Maze = () => {
           <button className="reload" onClick={resetGame}>
             Play Again
           </button>
-          <Confetti numberOfPieces={400} gravity={0.1} />
+          <SpiderConfetti />
+
+          {/* <Confetti numberOfPieces={400} gravity={0.1} /> */}
         </div>
       )}
       <button id="handleClick" onClick={handleCreate}>
