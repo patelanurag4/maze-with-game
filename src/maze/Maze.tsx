@@ -562,7 +562,10 @@ const Maze = () => {
         Create
       </button>
       <p style={{ position: 'fixed', bottom: '18px', textAlign: 'center', width: '100%', fontSize: '14px', color: '#a3a3a3' }}>Anurag &#169; 2024 </p>
-      <p style={{ position: 'fixed', bottom: '18px', right: '18px', textAlign: 'right', fontSize: '14px', color: '#fff', padding: '4px 8px', borderRadius: '6px', backgroundColor: '#fa7070' }}>Beta</p>
+      <p style={{
+        position: 'fixed', bottom: '18px', right: '18px', textAlign: 'right', fontSize: '14px', color: '#fff',
+        padding: '4px 8px', borderRadius: '6px', backgroundColor: '#a3a3a3'
+      }}>v0.1</p>
     </>
   );
 };
