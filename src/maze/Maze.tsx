@@ -51,6 +51,8 @@ const Maze = () => {
   });
 
   const [mazeWidthHeight, setMazeWidthHeight] = useState(30);
+  var root = document.querySelector(":root");
+  (root as any)?.style?.setProperty("--height", `${30}px`);
 
   useEffect(() => {
     let screen = window.innerWidth
@@ -59,8 +61,14 @@ const Maze = () => {
       setMazeWidthHeight(temp)
       var root = document.querySelector(":root");
       (root as any)?.style?.setProperty("--height", `${temp}px`);
+    } else {
+      setMazeWidthHeight(30)
     }
   }, [mazeSize])
+
+  useEffect(() => {
+    console.log("mazeheight", mazeWidthHeight)
+  }, [mazeWidthHeight])
 
   useEffect(() => {
     createMaze(mazeSize, setMaze);
@@ -71,6 +79,7 @@ const Maze = () => {
     mazeSize: number,
     setMaze: Dispatch<SetStateAction<Array<Array<MazeType>>>>
   ) => {
+    console.log("mazeWidthHeight", mazeWidthHeight)
     const cellObject: MazeType = {
       visited: false,
       initialNode: false,
