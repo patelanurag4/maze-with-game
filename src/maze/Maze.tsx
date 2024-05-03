@@ -3,10 +3,6 @@ import { Dispatch, SetStateAction } from "react";
 import "./maze.css";
 import Confetti from "react-confetti";
 
-const mazeWidthHeight: number = 30;
-
-var root = document.querySelector(":root");
-(root as any)?.style?.setProperty("--height", `${mazeWidthHeight}px`);
 
 interface MazeType {
   visited: boolean;
@@ -53,6 +49,18 @@ const Maze = () => {
     x: 0,
     y: 0,
   });
+
+  const [mazeWidthHeight, setMazeWidthHeight] = useState(30);
+
+  useEffect(() => {
+    let screen = window.innerWidth
+    if (screen < 500) {
+      let temp = screen / (mazeSize + 1)
+      setMazeWidthHeight(temp)
+      var root = document.querySelector(":root");
+      (root as any)?.style?.setProperty("--height", `${temp}px`);
+    }
+  }, [mazeSize])
 
   useEffect(() => {
     createMaze(mazeSize, setMaze);
