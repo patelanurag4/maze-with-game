@@ -58,17 +58,12 @@ const Maze = () => {
     let screen = window.innerWidth
     if (screen < 500) {
       let temp = screen / (mazeSize + 1)
-      setMazeWidthHeight(temp)
-      var root = document.querySelector(":root");
+      setMazeWidthHeight(temp);
       (root as any)?.style?.setProperty("--height", `${temp}px`);
     } else {
       setMazeWidthHeight(30)
     }
   }, [mazeSize])
-
-  useEffect(() => {
-    console.log("mazeheight", mazeWidthHeight)
-  }, [mazeWidthHeight])
 
   useEffect(() => {
     createMaze(mazeSize, setMaze);
@@ -79,7 +74,6 @@ const Maze = () => {
     mazeSize: number,
     setMaze: Dispatch<SetStateAction<Array<Array<MazeType>>>>
   ) => {
-    console.log("mazeWidthHeight", mazeWidthHeight)
     const cellObject: MazeType = {
       visited: false,
       initialNode: false,
@@ -511,6 +505,10 @@ const Maze = () => {
                           "startPoint"
                           }  ${finalState[0] == i && finalState[1] == j && "endPoint"
                           }`}
+                        style={{
+                          minHeight: `${mazeWidthHeight}px`,
+                          minWidth: `${mazeWidthHeight}px`,
+                        }}
                       >
                         <div
                           style={{
@@ -531,6 +529,8 @@ const Maze = () => {
                 style={{
                   top: `${currentBuddyPlacement.y * mazeWidthHeight}px`,
                   left: `${currentBuddyPlacement.x * mazeWidthHeight}px`,
+                  height: `${mazeWidthHeight}px`,
+                  width: `${mazeWidthHeight}px`,
                 }}
               >
                 <Pacman height="70%" width="70%" />

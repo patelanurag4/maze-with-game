@@ -15,8 +15,6 @@ body {
 }
 .block {
   background-color: #a1c398;
-  min-height: var(--height);
-  min-width: var(--height);
   border: 1px solid transparent;
   box-sizing: border-box;
 }
@@ -52,8 +50,6 @@ body {
 
 .buddy {
   position: absolute;
-  height: var(--height);
-  width: var(--height);
   display: flex;
   justify-content: center;
   align-items: center;
