@@ -437,43 +437,50 @@ const Maze = () => {
           <div className="submit">
             <div>
               <span>
-                <input
-                  type="radio"
-                  name="difficulty"
-                  value={6}
-                  onChange={(e) => setMazeSize(Number(e.target.value))}
-                  checked={mazeSize == 6}
-                  style={{
-                    accentColor: "#a1c398",
-                  }}
-                />
-                easy
+                <label>
+                  <input
+                    type="radio"
+                    name="difficulty"
+                    id="difficulty"
+                    value={6}
+                    onChange={(e) => setMazeSize(Number(e.target.value))}
+                    checked={mazeSize == 6}
+                    style={{
+                      accentColor: "#a1c398",
+                    }}
+                  />
+                  easy
+                </label>
               </span>
               <span>
-                <input
-                  type="radio"
-                  name="difficulty"
-                  value={10}
-                  onChange={(e) => setMazeSize(Number(e.target.value))}
-                  checked={mazeSize == 10}
-                  style={{
-                    accentColor: "#a1c398",
-                  }}
-                />
-                medium
+                <label>
+                  <input
+                    type="radio"
+                    name="difficulty"
+                    value={10}
+                    onChange={(e) => setMazeSize(Number(e.target.value))}
+                    checked={mazeSize == 10}
+                    style={{
+                      accentColor: "#a1c398",
+                    }}
+                  />
+                  medium
+                </label>
               </span>
               <span>
-                <input
-                  type="radio"
-                  name="difficulty"
-                  value={15}
-                  onChange={(e) => setMazeSize(Number(e.target.value))}
-                  checked={mazeSize == 15}
-                  style={{
-                    accentColor: "#a1c398",
-                  }}
-                />
-                hard
+                <label>
+                  <input
+                    type="radio"
+                    name="difficulty"
+                    value={15}
+                    onChange={(e) => setMazeSize(Number(e.target.value))}
+                    checked={mazeSize == 15}
+                    style={{
+                      accentColor: "#a1c398",
+                    }}
+                  />
+                  hard
+                </label>
               </span>
             </div>
             <button onClick={start}>Create Maze </button>
