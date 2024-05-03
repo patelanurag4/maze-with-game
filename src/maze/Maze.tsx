@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 import "./maze.css";
-import Confetti from "react-confetti";
 import SpiderConfetti from "./SpiderConfetti/Confetti";
 
 
